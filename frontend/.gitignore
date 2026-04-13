@@ -1,0 +1,27 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# DishantNGO admin auth key : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDc5MDQ4ZWQzODgwZWE1MmFmZTJlMSIsInJvbGUiOiJuZ29fYWRtaW4iLCJpYXQiOjE3NzU3MzQ4NTcsImV4cCI6MTc3NjMzOTY1N30.KID51RiEQQERNnd8DiysXl_nUd-MutEZyiGEgk7HUxA
+# dishant volunteer auth key: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZDc4YjVmNzQ1NGMzMzVhOGVjMTAwMiIsInJvbGUiOiJ2b2x1bnRlZXIiLCJpYXQiOjE3NzU3MzM1OTksImV4cCI6MTc3NjMzODM5OX0.hw1Dy-ihFHc-TQshzM9bDL1lFI6ktYijyJ3iynMDoCM
