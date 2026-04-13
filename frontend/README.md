@@ -45,4 +45,4 @@ Follow these instructions to run the "We're Human" platform locally on your mach
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/Dishant0123/were-human.git](https://github.com/Dishant0123/we-re-human.git)
+git clone [https://github.com/Dishant0123/we-re-human-webapp.git](https://github.com/Dishant0123/we-re-human-webapp.git)
