@@ -3,12 +3,9 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { Menu, X, LayoutDashboard, Compass, MessageCircle, User, Settings, LogOut } from 'lucide-react';
 import logo from '../assets/logo.svg';
-import { Moon, Sun } from 'lucide-react';
-import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
-  const { theme, toggleTheme } = useTheme();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -25,9 +22,6 @@ const Navbar = () => {
   return (
     <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 w-[90%] max-w-6xl bg-white/90 backdrop-blur-md border border-theme-border shadow-sm rounded-[20px] px-6 py-3 z-50 transition-all duration-300">
       <div className="flex justify-between items-center">
-        <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-theme-border transition-colors">
-          {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-        </button>
 
         <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="flex-shrink-0 transition-transform hover:scale-105">
           <img src={logo} alt="We're Human Logo" className="h-10 w-auto" />

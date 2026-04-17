@@ -41,10 +41,10 @@ const CreatePostModal = ({ isOpen, onClose, onPostCreated, onPostUpdated, editDa
       };
 
       if (editData) {
-        const res = await axios.put(`http://localhost:5000/api/events/${editData._id}`, payload, config);
+        const res = await axios.put(`https://we-re-human-1.onrender.com/api/events/${editData._id}`, payload, config);
         onPostUpdated(res.data.event);
       } else {
-        const res = await axios.post('http://localhost:5000/api/events', payload, config);
+        const res = await axios.post('https://we-re-human-1.onrender.com/api/events', payload, config);
         onPostCreated(res.data.event);
       }
       onClose(); 
