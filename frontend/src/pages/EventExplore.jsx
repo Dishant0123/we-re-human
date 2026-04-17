@@ -21,7 +21,7 @@ const EventExplore = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/events');
+        const res = await axios.get('https://we-re-human-1.onrender.com/api/events');
         
         // Debugging log: Let's see exactly what the backend is sending
         console.log("Raw Backend Response:", res.data);
@@ -89,7 +89,7 @@ const EventExplore = () => {
     setSuccessMsg(null);
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
-      await axios.post(`http://localhost:5000/api/events/${eventId}/register`, {}, config);
+      await axios.post(`https://we-re-human-1.onrender.com/api/events/${eventId}/register`, {}, config);
       
       setSuccessMsg('Successfully joined the initiative!');
       

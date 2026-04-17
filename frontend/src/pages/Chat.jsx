@@ -26,7 +26,7 @@ const Chat = () => {
     }
 
     // Connect to the WebSocket server
-    const newSocket = io('http://localhost:5000');
+    const newSocket = io('https://we-re-human-1.onrender.com');
     setSocket(newSocket);
 
     // Fetch the events to populate the sidebar
@@ -34,8 +34,8 @@ const Chat = () => {
       try {
         const config = { headers: { Authorization: `Bearer ${user.token}` } };
         const endpoint = user.role === 'ngo_admin' 
-          ? 'http://localhost:5000/api/events/my-events' 
-          : 'http://localhost:5000/api/users/profile';
+          ? 'https://we-re-human-1.onrender.com/api/events/my-events' 
+          : 'https://we-re-human-1.onrender.com/api/users/profile';
           
         const res = await axios.get(endpoint, config);
         setEvents(user.role === 'ngo_admin' ? res.data.events : res.data.history);

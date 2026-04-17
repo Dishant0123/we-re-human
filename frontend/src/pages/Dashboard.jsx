@@ -20,10 +20,10 @@ const Dashboard = () => {
       try {
         const config = { headers: { Authorization: `Bearer ${user.token}` } };
         if (user.role === 'ngo_admin') {
-          const res = await axios.get('http://localhost:5000/api/events/my-events', config);
+          const res = await axios.get('https://we-re-human-1.onrender.com/api/events/my-events', config);
           setData(res.data.events.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)));
         } else {
-          const res = await axios.get('http://localhost:5000/api/users/profile', config);
+          const res = await axios.get('https://we-re-human-1.onrender.com/api/users/profile', config);
           setData(res.data.history || []); 
         }
       } catch (err) {
@@ -40,7 +40,7 @@ const Dashboard = () => {
     if (window.confirm("Are you sure you want to permanently delete this initiative?")) {
       try {
         const config = { headers: { Authorization: `Bearer ${user.token}` } };
-        await axios.delete(`http://localhost:5000/api/events/${eventId}`, config);
+        await axios.delete(`https://we-re-human-1.onrender.com/api/events/${eventId}`, config);
         setData(data.filter(item => item._id !== eventId));
       } catch (err) { alert('Failed to delete event.'); }
     }
@@ -50,7 +50,7 @@ const Dashboard = () => {
     if (window.confirm("Are you sure you want to drop out of this initiative?")) {
       try {
         const config = { headers: { Authorization: `Bearer ${user.token}` } };
-        await axios.delete(`http://localhost:5000/api/events/${eventId}/register`, config);
+        await axios.delete(`https://we-re-human-1.onrender.com/api/events/${eventId}/register`, config);
         setData(data.filter(item => item._id !== eventId));
       } catch (err) { alert('Failed to cancel enrollment.'); }
     }

@@ -40,7 +40,7 @@ const Setting = () => {
 
     try {
       const config = { headers: { Authorization: `Bearer ${user.token}` } };
-      const response = await axios.put('http://localhost:5000/api/users/profile', { name }, config);
+      const response = await axios.put('https://we-re-human-1.onrender.com/api/users/profile', { name }, config);
       
       // Update the global context so the navbar updates instantly!
       login({ ...user, name: response.data.user.name });

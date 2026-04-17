@@ -28,7 +28,7 @@ const Register = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', formData);
+      const response = await axios.post('https://we-re-human-1.onrender.com/api/auth/register', formData);
       
       // Auto-login the user immediately after successful registration
       login(response.data);
