@@ -51,7 +51,27 @@ const Navbar = () => {
         </button>
       </div>
       
-      {/* Mobile Menu Logic Omitted for brevity, keep your existing mobile dropdown here! */}
+      {/* Mobile Navigation Dropdown */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-[115%] left-0 w-full bg-white/95 backdrop-blur-xl border border-theme-border shadow-2xl rounded-[20px] p-5 flex flex-col gap-3 text-theme-grey font-medium z-[100] transition-all origin-top animate-in slide-in-from-top-2 fade-in duration-200">
+          {user ? (
+            <>
+              <Link to="/dashboard" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 p-3 rounded-xl hover:bg-theme-teal-light hover:text-theme-teal"><LayoutDashboard size={20} /> Dashboard</Link>
+              <Link to="/events" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 p-3 rounded-xl hover:bg-theme-teal-light hover:text-theme-teal"><Compass size={20} /> Events</Link>
+              <Link to="/chat" onClick={() => setIsMobileMenuOpen(false)} className="flex items-center gap-3 p-3 rounded-xl hover:bg-theme-teal-light hover:text-theme-teal"><MessageCircle size={20} /> Chat</Link>
+              <button onClick={handleLogout} className="flex items-center gap-3 p-3 text-left rounded-xl text-red-500 hover:bg-red-50"><LogOut size={20} /> Log Out</button>
+            </>
+          ) : (
+            <>
+              <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="p-3 rounded-xl hover:bg-theme-teal-light hover:text-theme-teal text-center">About Us</Link>
+              <div className="grid grid-cols-2 gap-3 mt-2">
+                <Link to="/login" onClick={() => setIsMobileMenuOpen(false)} className="p-3 text-center bg-theme-light text-theme-teal rounded-xl border border-theme-border">Log In</Link>
+                <Link to="/register" onClick={() => setIsMobileMenuOpen(false)} className="p-3 text-center bg-theme-teal text-white rounded-xl shadow-md">Sign Up</Link>
+              </div>
+            </>
+          )}
+        </div>
+      )}
     </nav>
   );
 };
