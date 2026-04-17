@@ -53,10 +53,11 @@ io.on('connection', (socket) => {
   });
 });
 
-const LOCAL_DB = "mongodb://127.0.0.1:27017/werehuman";
-console.log("Attempting to connect to:", LOCAL_DB);
+const DB_URI = process.env.MONGO_URI;
+console.log("Attempting to connect to:", DB_URI);
 
-mongoose.connect(LOCAL_DB)
+
+mongoose.connect(DB_URI)
   .then(() => {
     console.log('✅ Local MongoDB connected successfully.');
     
