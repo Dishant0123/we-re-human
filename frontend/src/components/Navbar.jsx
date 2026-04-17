@@ -4,11 +4,11 @@ import { AuthContext } from '../context/AuthContext';
 import { Menu, X, LayoutDashboard, Compass, MessageCircle, User, Settings, LogOut } from 'lucide-react';
 import logo from '../assets/logo.svg';
 import { Moon, Sun } from 'lucide-react';
-import { ThemeContext } from '../context/ThemeContext';
+import { useTheme } from '../context/ThemeContext';
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
-  const { theme, toggleTheme } = useContext(ThemeContext);
+  const { theme, toggleTheme } = useTheme();
 
   const navigate = useNavigate();
   const location = useLocation();
