@@ -12,6 +12,8 @@ import EventExplore from './pages/EventExplore';
 import Chat from './pages/Chat';
 import Profile from './pages/Profile';
 import Setting from './pages/Setting';
+import FAQ from './pages/FAQ';
+import Terms from './pages/Terms';
 
 const ProtectedRoute = ({ children }) => {
   const { user } = useContext(AuthContext);
@@ -31,6 +33,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} /> 
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/terms" element={<Terms />} />
             <Route path="/events" element={<EventExplore />} />
             <Route path="/explore" element={<EventExplore />} /> 
             

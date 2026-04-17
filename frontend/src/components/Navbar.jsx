@@ -3,9 +3,13 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { Menu, X, LayoutDashboard, Compass, MessageCircle, User, Settings, LogOut } from 'lucide-react';
 import logo from '../assets/logo.svg';
+import { Moon, Sun } from 'lucide-react';
+import { ThemeContext } from '../context/ThemeContext';
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
   const navigate = useNavigate();
   const location = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -21,7 +25,10 @@ const Navbar = () => {
   return (
     <nav className="fixed top-6 left-1/2 transform -translate-x-1/2 w-[90%] max-w-6xl bg-white/90 backdrop-blur-md border border-theme-border shadow-sm rounded-[20px] px-6 py-3 z-50 transition-all duration-300">
       <div className="flex justify-between items-center">
-        
+        <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-theme-border transition-colors">
+          {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+        </button>
+
         <Link to="/" onClick={() => setIsMobileMenuOpen(false)} className="flex-shrink-0 transition-transform hover:scale-105">
           <img src={logo} alt="We're Human Logo" className="h-10 w-auto" />
         </Link>
@@ -40,6 +47,8 @@ const Navbar = () => {
           ) : (
             <>
               <Link to="/about" className={`hover:text-theme-teal transition-colors ${isActive('/about') ? 'text-theme-teal' : ''}`}>About Us</Link>
+              <Link to="/faq" className={`hover:text-theme-teal transition-colors ${isActive('/faq') ? 'text-theme-teal' : ''}`}>FAQ</Link>
+              <Link to="/terms" className={`hover:text-theme-teal transition-colors ${isActive('/terms') ? 'text-theme-teal' : ''}`}>Terms</Link>
               <Link to="/login" className="px-6 py-2.5 bg-theme-light text-theme-teal rounded-xl hover:bg-theme-teal-light transition-all border border-theme-teal-pale shadow-sm">Log In</Link>
               <Link to="/register" className="px-6 py-2.5 bg-theme-teal text-white rounded-xl hover:bg-theme-teal-dark transition-all shadow-md">Sign Up</Link>
             </>
@@ -64,6 +73,8 @@ const Navbar = () => {
           ) : (
             <>
               <Link to="/about" onClick={() => setIsMobileMenuOpen(false)} className="p-3 rounded-xl hover:bg-theme-teal-light hover:text-theme-teal text-center">About Us</Link>
+              <Link to="/faq" onClick={() => setIsMobileMenuOpen(false)} className="p-3 rounded-xl hover:bg-theme-teal-light hover:text-theme-teal text-center">FAQ</Link>
+              <Link to="/terms" onClick={() => setIsMobileMenuOpen(false)} className="p-3 rounded-xl hover:bg-theme-teal-light hover:text-theme-teal text-center">Terms</Link>
               <div className="grid grid-cols-2 gap-3 mt-2">
                 <Link to="/login" onClick={() => setIsMobileMenuOpen(false)} className="p-3 text-center bg-theme-light text-theme-teal rounded-xl border border-theme-border">Log In</Link>
                 <Link to="/register" onClick={() => setIsMobileMenuOpen(false)} className="p-3 text-center bg-theme-teal text-white rounded-xl shadow-md">Sign Up</Link>
